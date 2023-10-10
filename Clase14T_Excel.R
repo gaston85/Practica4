@@ -76,9 +76,9 @@ lines(meteo_1[,2],col="blue")
 ############### Imagenes raster #################
 
 require("raster") #para trabajar con la imagen
-require("maps") #para el grafico
+require("maps") #para el grafico.
 
-WIND<-rasterI("/home/clinux01/gaston/Practica_4/wind_speed_monthly_globe_2014.grib",
+WIND<-raster("/home/clinux01/gaston/Practica_4/wind_speed_monthly_globe_2014.grib",
              band=2) ## elijo una banda
 plot(WIND)
 
