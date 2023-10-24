@@ -50,7 +50,7 @@ contour(hgt850[,,fecha])
 
 
 #Ejercicios---------------
-
+#1
 rm(list = ls())
 
 
@@ -68,7 +68,7 @@ time<-ymd_hms("0001-1-1 00:0.0") + hours(Time)
 
 contour(olr[,,which(format(time,"%Y-%m-%d")=="1996-06-03")])
 
-
+#2
 rm(list = ls())
 nc<-nc_open("X157.92.28.55.252.12.27.10.nc")
 
@@ -79,3 +79,21 @@ Time<-ncvar_get(nc,"time")
 time<-ymd_hms("1800-1-1 00:0.0") + days(Time)
 
 plot(tsnv[70,21,],type = "l",col="pink")
+
+#3
+rm(list = ls())
+
+nc<-nc_open("pp_gfdl_hist_2001.nc")
+nc
+pp<-ncvar_get(nc,"pr")
+longitud<-ncvar_get(nc,"lon")
+latitud<-ncvar_get(nc,"lat")
+Time<-ncvar_get(nc,"time")
+time<-ymd_hms("1861-01-01 00:0.0") + days(Time)
+
+max(pp)
+pp_mm<-pp*86400
+max(pp_mm)
+
+pp[pp=="1.00000002004088e+20"]<-NA
+which(pp_mm==max(pp_mm),arr.ind = T)
